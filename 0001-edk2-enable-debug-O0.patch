@@ -1,0 +1,35 @@
+diff --git a/Platform/Qemu/SbsaQemu/SbsaQemu.dsc b/Platform/Qemu/SbsaQemu/SbsaQemu.dsc
+index bfde65045c..7a5839d096 100644
+--- a/Platform/Qemu/SbsaQemu/SbsaQemu.dsc
++++ b/Platform/Qemu/SbsaQemu/SbsaQemu.dsc
+@@ -275,6 +275,10 @@ DEFINE NETWORK_HTTP_BOOT_ENABLE       = FALSE
+ [BuildOptions.common.EDKII.DXE_RUNTIME_DRIVER]
+   GCC:*_*_AARCH64_DLINK_FLAGS = -z common-page-size=0x10000
+ 
++[BuildOptions.common]
++  GCC:*_*_*_CC_FLAGS = -fno-omit-frame-pointer
++  GCC:*_*_*_ASM_FLAGS = -g
++
+ [BuildOptions]
+   GCC:RELEASE_*_*_CC_FLAGS  = -DMDEPKG_NDEBUG
+ 
+@@ -555,6 +559,7 @@ DEFINE NETWORK_HTTP_BOOT_ENABLE       = FALSE
+   # Ramdisk support
+   #
+   MdeModulePkg/Universal/Disk/RamDiskDxe/RamDiskDxe.inf
++  MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
+ 
+   #
+   # UEFI application (Shell Embedded Boot Loader)
+diff --git a/Platform/Qemu/SbsaQemu/SbsaQemu.fdf b/Platform/Qemu/SbsaQemu/SbsaQemu.fdf
+index 0ccc253d95..33c4d86707 100644
+--- a/Platform/Qemu/SbsaQemu/SbsaQemu.fdf
++++ b/Platform/Qemu/SbsaQemu/SbsaQemu.fdf
+@@ -277,6 +277,7 @@ READ_LOCK_STATUS   = TRUE
+   # Ramdisk support
+   #
+   INF MdeModulePkg/Universal/Disk/RamDiskDxe/RamDiskDxe.inf
++  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
+ 
+ [FV.FVMAIN_COMPACT]
+ FvAlignment        = 16

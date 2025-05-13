@@ -7,6 +7,7 @@
 [submodule "edk2-non-osi"]
 	path = edk2-non-osi
 	url = https://github.com/tianocore/edk2-non-osi.git
+	ignore = all
 [submodule "trusted-firmware-a"]
 	path = trusted-firmware-a
 	url = https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git
